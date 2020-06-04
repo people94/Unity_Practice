@@ -1,234 +1,187 @@
 fileFormatVersion: 2
-guid: a1172801cc64d474bb0e48c03b543a5a
+guid: 3f4aebb26a6404c0ba0599cde5d9ee59
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       1: 100000
-    second: Rcalf
+    second: chest
   - first:
       1: 100002
-    second: chest
+    second: //RootNode
   - first:
       1: 100004
-    second: neck
+    second: Hat_Target
   - first:
       1: 100006
-    second: mutant_meshLod1
+    second: head
   - first:
       1: 100008
-    second: mutant_mesh
+    second: Larm
   - first:
       1: 100010
-    second: Rthigh
+    second: Lcalf
   - first:
       1: 100012
-    second: Ribs
+    second: Lfingers
   - first:
       1: 100014
-    second: Rshoulder
+    second: Lfoot
   - first:
       1: 100016
-    second: head
+    second: Lforearm
   - first:
       1: 100018
-    second: Rthumb
+    second: Lshoulder
   - first:
       1: 100020
-    second: mutant_meshLod2
+    second: Lthigh
   - first:
       1: 100022
-    second: Rforearm
+    second: Lthumb
   - first:
       1: 100024
-    second: Rfoot
+    second: Lwrist
   - first:
       1: 100026
-    second: Rfingers
-  - first:
-      1: 100028
-    second: Larm
-  - first:
-      1: 100030
-    second: Rweaponholder
-  - first:
-      1: 100032
-    second: //RootNode
-  - first:
-      1: 100034
-    second: stomach
-  - first:
-      1: 100036
-    second: pelvis
-  - first:
-      1: 100038
-    second: Rwrist
-  - first:
-      1: 100040
-    second: Lthigh
-  - first:
-      1: 100042
-    second: Lthumb
-  - first:
-      1: 100044
-    second: Lfoot
-  - first:
-      1: 100046
-    second: Lfingers
-  - first:
-      1: 100048
-    second: Lforearm
-  - first:
-      1: 100050
-    second: Rarm
-  - first:
-      1: 100052
-    second: Lcalf
-  - first:
-      1: 100054
-    second: Lwrist
-  - first:
-      1: 100056
-    second: Lshoulder
-  - first:
-      1: 100058
-    second: Hat_Target
-  - first:
-      4: 400000
-    second: Rcalf
-  - first:
-      4: 400002
-    second: chest
-  - first:
-      4: 400004
     second: neck
   - first:
-      4: 400006
-    second: mutant_meshLod1
-  - first:
-      4: 400008
-    second: mutant_mesh
-  - first:
-      4: 400010
-    second: Rthigh
-  - first:
-      4: 400012
-    second: Ribs
-  - first:
-      4: 400014
-    second: Rshoulder
-  - first:
-      4: 400016
-    second: head
-  - first:
-      4: 400018
-    second: Rthumb
-  - first:
-      4: 400020
-    second: mutant_meshLod2
-  - first:
-      4: 400022
-    second: Rforearm
-  - first:
-      4: 400024
-    second: Rfoot
-  - first:
-      4: 400026
-    second: Rfingers
-  - first:
-      4: 400028
-    second: Larm
-  - first:
-      4: 400030
-    second: Rweaponholder
-  - first:
-      4: 400032
-    second: //RootNode
-  - first:
-      4: 400034
-    second: stomach
-  - first:
-      4: 400036
+      1: 100028
     second: pelvis
   - first:
-      4: 400038
-    second: Rwrist
-  - first:
-      4: 400040
-    second: Lthigh
-  - first:
-      4: 400042
-    second: Lthumb
-  - first:
-      4: 400044
-    second: Lfoot
-  - first:
-      4: 400046
-    second: Lfingers
-  - first:
-      4: 400048
-    second: Lforearm
-  - first:
-      4: 400050
+      1: 100030
     second: Rarm
   - first:
-      4: 400052
-    second: Lcalf
+      1: 100032
+    second: Rcalf
   - first:
-      4: 400054
-    second: Lwrist
+      1: 100034
+    second: Rfingers
   - first:
-      4: 400056
-    second: Lshoulder
+      1: 100036
+    second: Rfoot
   - first:
-      4: 400058
+      1: 100038
+    second: Rforearm
+  - first:
+      1: 100040
+    second: Ribs
+  - first:
+      1: 100042
+    second: Rshoulder
+  - first:
+      1: 100044
+    second: Rthigh
+  - first:
+      1: 100046
+    second: Rthumb
+  - first:
+      1: 100048
+    second: Rweaponholder
+  - first:
+      1: 100050
+    second: Rwrist
+  - first:
+      1: 100052
+    second: stomach
+  - first:
+      4: 400000
+    second: chest
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
     second: Hat_Target
   - first:
-      21: 2100000
-    second: 01 - Defaultdr
+      4: 400006
+    second: head
   - first:
-      43: 4300000
-    second: mutant_mesh
+      4: 400008
+    second: Larm
   - first:
-      43: 4300002
-    second: mutant_meshLod1
+      4: 400010
+    second: Lcalf
   - first:
-      43: 4300004
-    second: mutant_meshLod2
+      4: 400012
+    second: Lfingers
   - first:
-      74: 7400002
-    second: Take 001
+      4: 400014
+    second: Lfoot
+  - first:
+      4: 400016
+    second: Lforearm
+  - first:
+      4: 400018
+    second: Lshoulder
+  - first:
+      4: 400020
+    second: Lthigh
+  - first:
+      4: 400022
+    second: Lthumb
+  - first:
+      4: 400024
+    second: Lwrist
+  - first:
+      4: 400026
+    second: neck
+  - first:
+      4: 400028
+    second: pelvis
+  - first:
+      4: 400030
+    second: Rarm
+  - first:
+      4: 400032
+    second: Rcalf
+  - first:
+      4: 400034
+    second: Rfingers
+  - first:
+      4: 400036
+    second: Rfoot
+  - first:
+      4: 400038
+    second: Rforearm
+  - first:
+      4: 400040
+    second: Ribs
+  - first:
+      4: 400042
+    second: Rshoulder
+  - first:
+      4: 400044
+    second: Rthigh
+  - first:
+      4: 400046
+    second: Rthumb
+  - first:
+      4: 400048
+    second: Rweaponholder
+  - first:
+      4: 400050
+    second: Rwrist
+  - first:
+      4: 400052
+    second: stomach
+  - first:
+      74: 7400000
+    second: Dying
   - first:
       95: 9500000
     second: //RootNode
-  - first:
-      111: 11100000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: mutant_mesh
-  - first:
-      137: 13700002
-    second: mutant_meshLod1
-  - first:
-      137: 13700004
-    second: mutant_meshLod2
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 01 - Defaultdr
-    second: {fileID: 2100000, guid: 68b253fb8304545b28d865df7fe47b18, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
   animations:
-    legacyGenerateAnimations: 3
+    legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
-    optimizeGameObjects: 1
+    optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -243,22 +196,50 @@ ModelImporter:
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
-    extraExposedTransformPaths:
-    - pelvis/stomach/Ribs/chest/Rshoulder/Rarm/Rforearm/Rwrist/Rweaponholder
+    extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Dying
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.01
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -269,22 +250,22 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     meshOptimizationFlags: -1
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
-    normalCalculationMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
@@ -342,12 +323,12 @@ ModelImporter:
     - name: Rforearm
       parentName: Rarm
       position: {x: -0.33385673, y: 0.0000016021728, z: 0.000000019073486}
-      rotation: {x: -0.11542612, y: 0.040395174, z: 0.0029623716, w: 0.99248993}
+      rotation: {x: -0.11542615, y: 0.04039522, z: 0.002962135, w: 0.99248993}
       scale: {x: 1.0000001, y: 0.99999994, z: 1}
     - name: Rwrist
       parentName: Rforearm
       position: {x: -0.33543375, y: -0.0037568663, z: -0.006091232}
-      rotation: {x: 0.7271985, y: 0.03219335, z: 0.004494407, w: 0.6856572}
+      rotation: {x: 0.7271985, y: 0.032193355, z: 0.004494407, w: 0.68565726}
       scale: {x: 1.0000001, y: 1.0000001, z: 0.9999999}
     - name: Rweaponholder
       parentName: Rwrist
@@ -357,7 +338,7 @@ ModelImporter:
     - name: Rfingers
       parentName: Rwrist
       position: {x: -0.114370115, y: -0.0015478897, z: -0.0020076751}
-      rotation: {x: -0.06086416, y: -0.5066, z: 0.07704367, w: 0.85657245}
+      rotation: {x: -0.06086416, y: -0.50659996, z: 0.07704367, w: 0.8565724}
       scale: {x: 1, y: 1, z: 1}
     - name: Rthumb
       parentName: Rwrist
@@ -397,7 +378,7 @@ ModelImporter:
     - name: Lwrist
       parentName: Lforearm
       position: {x: -0.33543348, y: 0.0037568663, z: -0.0060910797}
-      rotation: {x: -0.7271988, y: 0.0321934, z: -0.0044946787, w: 0.6856569}
+      rotation: {x: -0.7271988, y: 0.032193404, z: -0.0044946787, w: 0.68565696}
       scale: {x: 0.99999994, y: 1, z: 0.99999976}
     - name: Lfingers
       parentName: Lwrist
@@ -437,7 +418,7 @@ ModelImporter:
     - name: Lfoot
       parentName: Lcalf
       position: {x: -0.49062783, y: 0.000000019073486, z: 0.000000009536743}
-      rotation: {x: -0.00040327347, y: 0.00037409106, z: 0.6797333, w: 0.73345923}
+      rotation: {x: -0.0004032734, y: 0.00037409103, z: 0.6797332, w: 0.73345923}
       scale: {x: 1.0000001, y: 1.0000002, z: 0.9999999}
     armTwist: 0.5
     foreArmTwist: 0.5
@@ -446,7 +427,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
@@ -455,7 +436,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

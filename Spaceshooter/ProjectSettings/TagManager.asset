@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Shootable
   - BULLET
+  - PLAYER
   layers:
   - Default
   - TransparentFX
