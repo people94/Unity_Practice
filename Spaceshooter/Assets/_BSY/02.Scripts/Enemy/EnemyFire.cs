@@ -56,6 +56,7 @@ public class EnemyFire : MonoBehaviour
         enemyTr = GetComponent<Transform>();
         animator = GetComponent<Animator>();
         audio = GetComponent<AudioSource>();
+        muzzleFlash.enabled = false;
 
         wsReload = new WaitForSeconds(reloadTime);
     }
