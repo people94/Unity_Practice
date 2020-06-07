@@ -14,10 +14,4 @@ public class BulletCtrl : MonoBehaviour
     {
         GetComponent<Rigidbody>().AddForce(transform.forward * speed);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

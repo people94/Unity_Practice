@@ -1,22 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyDamage : MonoBehaviour
 {
     private const string bulletTag = "BULLET";
     //생명 게이지
     private float hp = 100.0f;
+
     //피격 시 사용할 혈흔 효과
     private GameObject bloodEffect;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {            
         //혈흔 효과 프리팹을 로드
         bloodEffect = Resources.Load<GameObject>("BulletImpactFleshBigEffect");
+        
     }
-
+    
     private void OnCollisionEnter(Collision coll)
     {
         if(coll.collider.tag == bulletTag)
@@ -27,6 +31,7 @@ public class EnemyDamage : MonoBehaviour
             Destroy(coll.gameObject);
             //생명 게이지 차감
             hp -= coll.gameObject.GetComponent<BulletCtrl>().damage;
+
             if(hp<=0.0f)
             {
                 //적 캐릭터의 상태를 DIE로 변경
