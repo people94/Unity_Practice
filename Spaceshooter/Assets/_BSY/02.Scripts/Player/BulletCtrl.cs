@@ -9,9 +9,36 @@ public class BulletCtrl : MonoBehaviour
     //총알 발사속도
     public float speed = 1000.0f;
 
+    //컴포넌트를 저장할 변수
+    private Transform tr;
+    private Rigidbody rb;
+    private TrailRenderer trail;
+
+    private void Awake()
+    {
+        //컴포넌트 할당
+        tr = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody>();
+        trail = GetComponent<TrailRenderer>();
+    }
+
+    private void OnEnable()
+    {
+        rb.AddForce(transform.forward * speed);
+    }
+
+    private void OnDisable()
+    {
+        //재활용된 총알의 여러 효과값을 초기화
+        trail.Clear();
+        tr.position = Vector3.zero;
+        tr.rotation = Quaternion.identity;
+        rb.Sleep();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().AddForce(transform.forward * speed);
+        //GetComponent<Rigidbody>().AddForce(transform.forward * speed);
     }
 }

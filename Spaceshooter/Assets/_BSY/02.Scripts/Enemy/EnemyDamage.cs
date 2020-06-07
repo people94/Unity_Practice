@@ -12,13 +12,12 @@ public class EnemyDamage : MonoBehaviour
 
     //피격 시 사용할 혈흔 효과
     private GameObject bloodEffect;
-
+    
     // Start is called before the first frame update
     void Start()
     {            
         //혈흔 효과 프리팹을 로드
         bloodEffect = Resources.Load<GameObject>("BulletImpactFleshBigEffect");
-        
     }
     
     private void OnCollisionEnter(Collision coll)
@@ -28,7 +27,8 @@ public class EnemyDamage : MonoBehaviour
             //혈흔 효과를 생성하는 함수 호출
             ShowBloodEffect(coll);
             //총알 삭제
-            Destroy(coll.gameObject);
+            //Destroy(coll.gameObject);
+            coll.gameObject.SetActive(false);
             //생명 게이지 차감
             hp -= coll.gameObject.GetComponent<BulletCtrl>().damage;
 

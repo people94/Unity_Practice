@@ -88,15 +88,16 @@ public class Damage : MonoBehaviour
     private void PlayerDie()
     {
         OnPlayerDie();
-        Debug.Log("PlayerDie !");
-        //"ENEMY" 태그로 지정된 모든 적 캐릭터를 추출해 배열에 저장
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        
-        //배열의 처음부터 순회하면서 적 캐릭터의 OnPlayerDie 함수를 호출
-        for(int i =0; i < enemies.Length; i++)
-        {
-            enemies[i].SendMessage("OnPlayerDie", SendMessageOptions.DontRequireReceiver);
-        }
+        GameManager.instance.isGameOver = true;
+        //Debug.Log("PlayerDie !");
+        ////"ENEMY" 태그로 지정된 모든 적 캐릭터를 추출해 배열에 저장
+        //GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        //
+        ////배열의 처음부터 순회하면서 적 캐릭터의 OnPlayerDie 함수를 호출
+        //for(int i =0; i < enemies.Length; i++)
+        //{
+        //    enemies[i].SendMessage("OnPlayerDie", SendMessageOptions.DontRequireReceiver);
+        //}
     }
 
     // Update is called once per frame

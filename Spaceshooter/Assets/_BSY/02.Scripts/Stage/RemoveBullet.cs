@@ -16,7 +16,8 @@ public class RemoveBullet : MonoBehaviour
             //스파크 효과 함수 호출
             ShowEffect(collision);
             //충돌한 게임오브젝트 삭제
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
     }
 
