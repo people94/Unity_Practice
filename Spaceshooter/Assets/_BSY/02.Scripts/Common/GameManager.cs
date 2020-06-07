@@ -1,9 +1,10 @@
-﻿//using System;
-//using System;
-//using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+//GameData, Item 클래스가 담긴 네임스페이스 명시
+using DataInfo;
+//using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,30 @@ public class GameManager : MonoBehaviour
     //Inventory의 CanvasGroup 컴포넌트를 저장할 변수
     public CanvasGroup inventoryCG;
 
+    //주인공이 죽인 적 캐릭터의 수
+    [HideInInspector] public int killCount;
+    [Header("GameData")]
+    //적 캐릭터를 죽인 횟수를 표시할 텍스트 UI
+    public Text killCountTxt;
+
+    //DataManager를 저장할 변수
+    private DataManager dataManager;
+    //public GameData gameData;
+    //ScriptableObject를 연결할 변수
+    public GameDataObject gameData;
+
+    //인벤토리의 아이템이 변경됐을 때 발생시킬 이벤트 정의
+    public delegate void ItemChangeDelegate();
+    public static event ItemChangeDelegate OnItemChange;
+
+    //SlotList 게임오브젝트를 저장할 변수
+    private GameObject slotList;
+    //ItemList 하위에 이쓴 네 개의 아이템을 저장할 배열
+    public GameObject[] itemObjects;
+
+    //적 캐릭터를 죽인 횟수를 표시할 텍스트 UI
+    //public Text killCountTxt;
+
     private void Awake()
     {
         if(instance == null)
@@ -48,8 +73,167 @@ public class GameManager : MonoBehaviour
 
         //다른 씬으로 넘어가더라도 삭제하지 않고 유지함
         DontDestroyOnLoad(this.gameObject);
+
+        //DataManager를 추출해 저장
+        dataManager = GetComponent<DataManager>();
+        //DataManager 초기화
+        dataManager.Initialize();
+
+        //인벤토리에 추가된 아이템을 검색하기 위해 SlotList 게임오브젝트 추출
+        slotList = inventoryCG.transform.Find("SlotList").gameObject;
+
+        //게임의 초기 데이터 로드
+        LoadGameData();
+
         //오브젝트 풀링 생성함수 호출
         CreatePooling();
+    }
+
+    //게임의 초기 데이터 로드
+    private void LoadGameData()
+    {
+        //DataManager를 통해 파일에 저장된 데이터 불러오기 - ScriptableObject는 전역적으로 접근 가능해서 별도로 불러올 필요가 없다.
+        //GameData data = dataManager.Load();
+        //
+        //gameData.hp = data.hp;
+        //gameData.damage = data.damage;
+        //gameData.speed = data.speed;
+        //gameData.killCount = data.killCount;
+        //gameData.equipItem = data.equipItem;
+
+        //보유한 아이템이 있을 때만 호출
+        if(gameData.equipItem.Count > 0)
+        {
+            InventorySetup();
+        }
+
+        //KILL_COUNT 키로 저장된 값을 로드
+        //killCount = PlayerPrefs.GetInt("KILL_COUNT", 0);
+        killCountTxt.text = "KILL " + gameData.killCount.ToString("0000");
+    }
+
+    //로드한 데이터를 기준으로 인벤토리에 아이템을 추가하는 함수
+    private void InventorySetup()
+    {
+        //SlotList 하위에 있는 모든 Slot을 추출
+        var slots = slotList.GetComponentsInChildren<Transform>();
+
+        //보유한 아이템의 개수만큼 반복
+        for(int i =  0; i < gameData.equipItem.Count; i++)
+        {
+            //인벤토리 UI에 있는 Slot 개수만큼 반복
+            for(int j = 1; j < slots.Length; j++)
+            {
+                //Slot 하위에 다른 아이템이 있으면 다음 인덱스로 넘어감
+                if (slots[j].childCount > 0) continue;
+
+                //보유한 아이템의 종류에 따라 인덱스를 추출
+                int itemIndex = (int)gameData.equipItem[i].itemType;
+
+                //아이템의 부모를 Slot 게임오브젝트로 변경
+                itemObjects[itemIndex].GetComponent<Transform>().SetParent(slots[j]);
+                //아이템의 ItemInfo 클래스의 itemData에 로드한 데이터 값을 저장
+                itemObjects[itemIndex].GetComponent<ItemInfo>().itemData = gameData.equipItem[i];
+
+                //아이템을 Slot에 추가하면 바깥 for 구문으로 빠져나감
+                break;
+            }
+        }
+    }
+
+    //게임 데이터를 저장
+    void SaveGameData()
+    {
+        //dataManager.Save(gameData);
+        //.asset 파일에 데이터 저장
+        UnityEditor.EditorUtility.SetDirty(gameData);
+    }
+
+    //인벤토리에 아이템을 추가했을 때 데이터의 정보를 갱신하는 함수
+    public void AddItem(Item item)
+    {
+        //보유 아이템에 같은 아이템이 있으면 추가하지 않고 빠져나감
+        if (gameData.equipItem.Contains(item)) return;
+        //아이템을 GameData.equipItem 배열에 추가
+        gameData.equipItem.Add(item);
+
+        //아이템의 종류에 따라분기 처리
+        switch(item.itemType)
+        {
+            case Item.ItemType.HP:
+                //아이템의 계산 방식에 따라 연산 처리
+                if (item.itemCalc == Item.ItemCalc.INC_VALUE)
+                    gameData.hp += item.value;
+                else
+                    gameData.hp += gameData.hp * item.value;
+                break;
+
+            case Item.ItemType.DAMAGE:
+                //아이템의 계산 방식에 따라 연산 처리
+                if (item.itemCalc == Item.ItemCalc.INC_VALUE)
+                    gameData.damage += item.value;
+                else
+                    gameData.damage += gameData.damage * item.value;
+                break;
+
+            case Item.ItemType.SPEED:
+                //아이템의 계산 방식에 따라 연산 처리
+                if (item.itemCalc == Item.ItemCalc.INC_VALUE)
+                    gameData.speed += item.value;
+                else
+                    gameData.speed += gameData.speed * item.value;
+                break;
+
+            case Item.ItemType.GRENEAD:
+                break;
+        }
+        //.asset 파일에 데이터 저장
+        UnityEditor.EditorUtility.SetDirty(gameData);
+        //아이템이 변경된 것을 실시간으로 반영하기 위해 이벤트를 발생시킴
+        OnItemChange();
+
+        
+    }
+
+    //인벤토리에서 아이템을 제거했을 때 데이ㅓ를 갱신하는 함수
+    public void RemoveItem(Item item)
+    {
+        //아이템을 GameData.equipItem 배열에서 삭제
+        gameData.equipItem.Remove(item);
+        //아이템의 종류에 따라분기 처리
+        switch (item.itemType)
+        {
+            case Item.ItemType.HP:
+                //아이템의 계산 방식에 따라 연산 처리
+                if (item.itemCalc == Item.ItemCalc.INC_VALUE)
+                    gameData.hp -= item.value;
+                else
+                    gameData.hp = gameData.hp / (1.0f + item.value);
+                break;
+
+            case Item.ItemType.DAMAGE:
+                //아이템의 계산 방식에 따라 연산 처리
+                if (item.itemCalc == Item.ItemCalc.INC_VALUE)
+                    gameData.damage -= item.value;
+                else
+                    gameData.damage = gameData.damage / (1.0f + item.value);
+                break;
+
+            case Item.ItemType.SPEED:
+                //아이템의 계산 방식에 따라 연산 처리
+                if (item.itemCalc == Item.ItemCalc.INC_VALUE)
+                    gameData.speed -= item.value;
+                else
+                    gameData.speed = gameData.speed / (1.0f + item.value);
+                break;
+
+            case Item.ItemType.GRENEAD:
+                break;
+        }
+        //.asset 파일에 데이터 저장
+        UnityEditor.EditorUtility.SetDirty(gameData);
+        //아이템이 변경된 것을 실시간으로 반영하기 위해 이벤트를 발생시킴
+        OnItemChange();
     }
 
     public void CreatePooling()
@@ -106,6 +290,15 @@ public class GameManager : MonoBehaviour
         inventoryCG.blocksRaycasts = isOpened;
     }
 
+    //적 캐릭터가 죽을 때마다 호출될 함수
+    public void IncKillCount()
+    {
+        ++gameData.killCount;
+        killCountTxt.text = "KILL " + gameData.killCount.ToString("0000");
+        //죽인 횟수를 저장
+        //PlayerPrefs.SetInt("KILL_COUNT", killCount);
+    }
+
     //적 캐릭터를 생성하는 코루틴 함수
     IEnumerator CreateEnemy()
     {
@@ -133,6 +326,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        //게임 종료 전 게임 데이터를 저장
+        SaveGameData();
+    }
 
     //일시 정지 버튼 클릭 시 호출할 함수
     public void OnPauseClick()

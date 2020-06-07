@@ -1046,6 +1046,7 @@ GameObject:
   - component: {fileID: 212757475}
   - component: {fileID: 212757474}
   - component: {fileID: 212757477}
+  - component: {fileID: 212757478}
   m_Layer: 5
   m_Name: ItemHp
   m_TagString: Untagged
@@ -1134,6 +1135,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &212757478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212757472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b75e3e9510ea8d4887571f0063739a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemType: 0
+    itemCalc: 0
+    name: HP Up
+    desc: Increase + 10 Hp
+    value: 10
 --- !u!137 &265981905 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 13700000, guid: f3cd25b3bf53c4adaaf087d862e435e6,
@@ -1585,6 +1604,7 @@ GameObject:
   - component: {fileID: 396888138}
   - component: {fileID: 396888137}
   - component: {fileID: 396888140}
+  - component: {fileID: 396888141}
   m_Layer: 5
   m_Name: ItemSpeed
   m_TagString: Untagged
@@ -1673,6 +1693,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &396888141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396888135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b75e3e9510ea8d4887571f0063739a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemType: 1
+    itemCalc: 1
+    name: Speed Up
+    desc: Increase Speed 10%
+    value: 0.1
 --- !u!1 &397128538 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1567814964950813882, guid: 783977f4e4abc3b4fb65fe2297edcdba,
@@ -1834,6 +1872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 439142900}
   - component: {fileID: 439142899}
+  - component: {fileID: 439142901}
   m_Layer: 0
   m_Name: GameMgr
   m_TagString: Untagged
@@ -1863,6 +1902,14 @@ MonoBehaviour:
   maxPool: 10
   bulletPool: []
   inventoryCG: {fileID: 661127170}
+  killCount: 0
+  killCountTxt: {fileID: 1685760357}
+  gameData: {fileID: 11400000, guid: 3cee1876373cc90498bbba25ff9ad182, type: 2}
+  itemObjects:
+  - {fileID: 212757472}
+  - {fileID: 396888135}
+  - {fileID: 765889165}
+  - {fileID: 1472973784}
 --- !u!4 &439142900
 Transform:
   m_ObjectHideFlags: 0
@@ -1877,6 +1924,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &439142901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439142898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965962dd0681ff74db3f09930e6ad15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &459779819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,6 +2930,7 @@ GameObject:
   - component: {fileID: 765889168}
   - component: {fileID: 765889167}
   - component: {fileID: 765889170}
+  - component: {fileID: 765889171}
   m_Layer: 5
   m_Name: ItemGrenade
   m_TagString: Untagged
@@ -2959,6 +3019,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &765889171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765889165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b75e3e9510ea8d4887571f0063739a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemType: 2
+    itemCalc: 0
+    name: Grenade Up
+    desc: Increase +2 Grenade
+    value: 2
 --- !u!1001 &795374704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4769,6 +4847,7 @@ RectTransform:
   - {fileID: 594700997}
   - {fileID: 661127167}
   - {fileID: 1438568185}
+  - {fileID: 1685760359}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5371,6 +5450,7 @@ GameObject:
   - component: {fileID: 1472973787}
   - component: {fileID: 1472973786}
   - component: {fileID: 1472973789}
+  - component: {fileID: 1472973790}
   m_Layer: 5
   m_Name: ItemShock
   m_TagString: Untagged
@@ -5459,6 +5539,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1472973790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472973784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b75e3e9510ea8d4887571f0063739a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemType: 3
+    itemCalc: 1
+    name: Damage Up
+    desc: Increase 5% Damage
+    value: 0.05
 --- !u!4 &1495290680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1980753525570741440, guid: 3a4ae6e3477752047abb6fe3b5745451,
@@ -5950,6 +6048,84 @@ MonoBehaviour:
   type: 1
   _color: {r: 0, g: 1, b: 0.11260915, a: 1}
   _radius: 0.6
+--- !u!1 &1685760356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1685760359}
+  - component: {fileID: 1685760358}
+  - component: {fileID: 1685760357}
+  m_Layer: 5
+  m_Name: KillCount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1685760357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685760356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: fae067962e5934395be31c8aba4a3455, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: KILL COUNT
+--- !u!222 &1685760358
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685760356}
+  m_CullTransparentMesh: 0
+--- !u!224 &1685760359
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685760356}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1333369297}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -94, y: 150.63}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1722510324
 GameObject:
   m_ObjectHideFlags: 0

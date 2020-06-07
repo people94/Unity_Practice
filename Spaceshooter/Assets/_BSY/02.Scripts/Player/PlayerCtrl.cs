@@ -34,6 +34,16 @@ public class PlayerCtrl : MonoBehaviour
     [System.NonSerialized]  //마찬가지
     public Animation anim;
 
+    private void OnEnable()
+    {
+        GameManager.OnItemChange += UpdateSetup;
+    }
+
+    void UpdateSetup()
+    {
+        moveSpeed = GameManager.instance.gameData.speed;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +54,9 @@ public class PlayerCtrl : MonoBehaviour
         //Animation 컴포넌트의 애니메이션 클립을 지정하고 실행
         anim.clip = playerAnim.idle;
         anim.Play();
+
+        //불러온 데이터 값을 moveSpeed에 적용
+        moveSpeed = GameManager.instance.gameData.speed;
     }
 
     // Update is called once per frame
