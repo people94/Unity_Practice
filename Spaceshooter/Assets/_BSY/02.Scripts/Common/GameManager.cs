@@ -1,5 +1,6 @@
 ﻿//using System;
 //using System;
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,11 @@ public class GameManager : MonoBehaviour
     //오브젝트 풀에 생성할 개수
     public int maxPool = 10;
     public List<GameObject> bulletPool = new List<GameObject>();
+
+    //일시 정지 여부를 판단하는 변수
+    private bool isPaused;
+    //Inventory의 CanvasGroup 컴포넌트를 저장할 변수
+    public CanvasGroup inventoryCG;
 
     private void Awake()
     {
@@ -80,6 +86,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //처음 인벤토리를 비활성화
+        OnInventoryOpen(false);
+
         //하이러키 뷰의 SpawnPointGroup을 찾아 하위에 있는 모든 Transform 컴포넌트를 찾아옴
         points = GameObject.Find("SpawnPointGroup").GetComponentsInChildren<Transform>();
 
@@ -87,6 +96,14 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(this.CreateEnemy());
         }
+    }
+
+    //인벤토리를 활성화/비활성화하는 함수
+    public void OnInventoryOpen(bool isOpened)
+    {
+        inventoryCG.alpha = (isOpened) ? 1.0f : 0.0f;
+        inventoryCG.interactable = isOpened;
+        inventoryCG.blocksRaycasts = isOpened;
     }
 
     //적 캐릭터를 생성하는 코루틴 함수
@@ -116,9 +133,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    //일시 정지 버튼 클릭 시 호출할 함수
+    public void OnPauseClick()
     {
-        
+        //일시 정지 값을 토글시킴
+        isPaused = !isPaused;
+        //Time Scale이 0이면 정지, 1이면 정상 속도
+        Time.timeScale = (isPaused) ? 0.0f : 1.0f;
+        //주인공 객체를 추출
+        var playerObj = GameObject.FindGameObjectWithTag("PLAYER");
+        //주인공 캐릭터에 추가된 모든 스크립트를 추출함
+        var scripts = playerObj.GetComponents<MonoBehaviour>();
+        //주인공 캐릭터의 모든 스크립트를 활성화/비활성화
+        foreach(var script in scripts)
+        {
+            script.enabled = !isPaused;
+        }
+
+        var canvasGroup = GameObject.Find("Panel - Weapon").GetComponent<CanvasGroup>();
+        canvasGroup.blocksRaycasts = !isPaused;
     }
+
 }
