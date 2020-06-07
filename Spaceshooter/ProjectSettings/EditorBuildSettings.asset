@@ -4,4 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_BSY/01.Scenes/Main.unity
+    guid: 2bf0a1bf8178ff24da7fceb1f0b2b5d7
+  - enabled: 1
+    path: Assets/_BSY/01.Scenes/Play.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/_BSY/01.Scenes/Level1.unity
+    guid: 02b85ff4a0398164fbca905f5f4396f9
+  - enabled: 1
+    path: Assets/_BSY/01.Scenes/SceneLoader.unity
+    guid: edd3f135094630f479970d9b8d6949f1
+  m_configObjects: {}

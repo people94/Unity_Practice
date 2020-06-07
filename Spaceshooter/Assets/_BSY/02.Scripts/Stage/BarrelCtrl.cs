@@ -46,6 +46,16 @@ public class BarrelCtrl : MonoBehaviour
         //난수를 발생시켜 불규칙적인 텍스처를 적용
         _renderer.material.mainTexture = textures[Random.Range(0, textures.Length)];
         //Shake 스크립트를 추출
+        //shake = GameObject.Find("CameraRig").GetComponent<Shake>();
+    }
+
+    //게임 로직 씬이 로드된 후 필요한 클래스 참조
+    IEnumerator GetShake()
+    {
+        while(!UnityEngine.SceneManagement.SceneManager.GetSceneByName("Play").isLoaded)
+        {
+            yield return null;
+        }
         shake = GameObject.Find("CameraRig").GetComponent<Shake>();
     }
 
